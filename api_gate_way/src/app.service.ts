@@ -7,7 +7,10 @@ import { CreateUserRequest } from './create-user-request.dto';
 export class AppService {
   private readonly fakeDbUsers: any[] = []
 
-  constructor(@Inject('COMMUNICATION') private readonly communicationClient: ClientProxy) {
+  constructor(
+    @Inject('COMMUNICATION') private readonly communicationClient: ClientProxy,
+    @Inject('ANALYTICS') private readonly analyticsClient: ClientProxy
+    ) {
 
   }
 
@@ -18,5 +21,6 @@ export class AppService {
   createUser(createUserRequst: CreateUserRequest){
     this.fakeDbUsers.push(createUserRequst)
     this.communicationClient.emit('user_created', new CreateUserEvent(createUserRequst.email))
+    this.analyticsClient.emit('user_created', new CreateUserEvent(createUserRequst.email))
   }
 }
