@@ -16,4 +16,10 @@ export class AppController {
     this.appService.createUser(craeteUserRequest)
   }
 
+  
+  @Get('analytics')
+  getAnalytics() {
+    return this.appService.getAnalytics();
+  }
+
 }

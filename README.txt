@@ -13,3 +13,5 @@ BODY:
 
 
 Communication app -> see logs.
+
+GET | localhost:300/analytics

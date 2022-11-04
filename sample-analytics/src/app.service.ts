@@ -16,4 +16,8 @@ export class AppService {
     })
     
   }
+
+  getAnalytics() {
+    return this.fakeDBAnalytics
+  }
 }

@@ -23,4 +23,8 @@ export class AppService {
     this.communicationClient.emit('user_created', new CreateUserEvent(createUserRequst.email))
     this.analyticsClient.emit('user_created', new CreateUserEvent(createUserRequst.email))
   }
+
+  getAnalytics() {
+    return this.analyticsClient.send({ cmd: 'get_analytics'}, {})
+  }
 }
